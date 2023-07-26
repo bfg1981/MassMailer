@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+</head>
+
+<body>
+<h1></h1>
+
+<table>
+  <tr>
+    <td>Subject</td>
+    <td><input type="text" id="fsubject" name="subject"
+  onchange="updateEmailLink()" value="Cool subject"></td>
+  </tr>
+  <tr>
+    <td>Body</td>
+    <td><input type="text" id="fbody" name="body"
+  onchange="updateEmailLink()" value="Awesome body"></td>
+  </tr>
+  <tr>
+    <td>Recipient (will be removed)</td>
+    <td><input type="text" id="frecipient" name="recipient"
+  onchange="updateEmailLink()" value=""></td>
+  </tr>
+</table>
+
+<hr>
+<div id="directEmail">You need to fill out the form to create a direct email </div>
+<div id="indirectEmail">You need to fill out the form to create an
+  indirect email </div>
+
+
+<script>
+function updateEmailLink() {
+  var recipientfield = document.getElementById("frecipient");
+  var bodyfield = document.getElementById("fbody");
+  var subjectfield = document.getElementById("fsubject");
+
+  var recipient=recipientfield.value;
+  var subject=subjectfield.value;
+  var body=bodyfield.value
+  console.log(subject);
+  console.log(body);
+
+  if (subject && body) {
+  console.log("Creating email");
+  var demail = document.getElementById("directEmail");
+//console.log(link);
+console.log(demail.innerHTML);
+  var dlink='<a href="mailto:Andreeambelu@gmail.com?subject=';
+  dlink+=encodeURIComponent(subject);
+  dlink+='&body=';
+  dlink+=encodeURIComponent(body);
+  dlink+='">This link will open an email in your own client</a>';
+  demail.innerHTML=dlink;
+
+  if (recipient && null) {
+    console.log("Creating email");
+    var idemail = document.getElementById("indirectEmail");
+    //console.log(link);
+    console.log(idemail.innerHTML);
+    var idlink='<a href="mailto:Andreeambelu@gmail.com?subject=';
+    idlink+=encodeURIComponent(subject);
+    idlink+='&body=';
+    idlink+=encodeURIComponent(body);
+    idlink+='">This will send you an email with a link to create another email</a>';
+    idemail.innerHTML=idlink;
+
+
+  }
+  }
+
+  }
+updateEmailLink();
+</script>
+
+</body> </html>
