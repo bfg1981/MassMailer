@@ -45,8 +45,7 @@ function updateEmailLink() {
   if (subject && body) {
   console.log("Creating email");
   var demail = document.getElementById("directEmail");
-//console.log(link);
-console.log(demail.innerHTML);
+  console.log(demail.innerHTML);
   var dlink='<a href="mailto:Andreeambelu@gmail.com?subject=';
   dlink+=encodeURIComponent(subject);
   dlink+='&body=';
@@ -57,7 +56,6 @@ console.log(demail.innerHTML);
   if (recipient && null) {
     console.log("Creating email");
     var idemail = document.getElementById("indirectEmail");
-    //console.log(link);
     console.log(idemail.innerHTML);
     var idlink='<a href="mailto:Andreeambelu@gmail.com?subject=';
     idlink+=encodeURIComponent(subject);
